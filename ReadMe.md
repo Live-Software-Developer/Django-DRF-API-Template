@@ -2,6 +2,8 @@
 
 This is a Django API Template that you can use to quickly spin up your `API` development.
 
+The files lie under the `project` folder.
+
 This template gives you the basic setup with:
 
 - Auth - customauth app
@@ -37,9 +39,8 @@ from your frontend to update your profile too.
 >   ```
 > BASE_URL: localhost:8000
 > TOKEN: some token value from login
-> 
 
 Anyways, `Hooray`
 
 
->> Coding is more fun when debugging becomes difficult
+> Coding is more fun when debugging becomes difficult
