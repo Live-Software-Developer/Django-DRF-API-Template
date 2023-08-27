@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # My apps
     'account',
     'customauth',
-    'mainapp',
+    'main',
 
     # Third party apps for DRF
     'rest_framework',
@@ -90,7 +90,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-        'mainapp.authentication.BearerTokenAuthentication'
+        'main.authentication.BearerTokenAuthentication'
     ],
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 30,
@@ -167,6 +167,9 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = 'staticfiles/'
 STATICFILES_DIRS = ['static/', 'media/']
+
+# DOMAIN SETTINGS
+MY_DOMAIN = "http://localhost:8000"
 
 if DEBUG:
     MEDIA_URL = 'media/'

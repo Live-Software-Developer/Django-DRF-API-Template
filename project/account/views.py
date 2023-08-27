@@ -1,12 +1,12 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
 
-from mainapp.utils import StandardResultsSetPagination
-from mainapp.permissions import IsAuthenticatedOrPostOnly
-from mainapp.authentication import AUTH_CLASS
-from rest_framework.authentication import TokenAuthentication
+from main.utils import StandardResultsSetPagination
+from main.permissions import IsAuthenticatedOrPostOnly
+from main.authentication import AUTH_CLASS
+
 from rest_framework.filters import SearchFilter
 
 from .serializers import AccountSerializer

@@ -4,6 +4,7 @@ from rest_framework import serializers
 from rest_framework.authtoken.admin import User
 
 from .models import Profile
+from main.utils import BaseSerializer
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -18,7 +19,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         }
 
 
-class AccountSerializer(WritableNestedModelSerializer):
+class AccountSerializer(BaseSerializer, WritableNestedModelSerializer):
     profile = ProfileSerializer(required=False)
 
     def validate_email(self, email):
@@ -61,6 +62,10 @@ class AccountSerializer(WritableNestedModelSerializer):
         return super().update(instance, validated_data)
 
     def to_representation(self, instance):
-        self.fields['profile'] = ProfileSerializer(many=False)
+        fields = self.get_fields()
+        required_fields = set(fields.keys())
+        if 'profile' in required_fields:
+            self.fields['profile'] = ProfileSerializer(many=False)
+
         return super(AccountSerializer, self).to_representation(instance)
 
